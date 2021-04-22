@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const {v4 : uuidv4} = require('uuid');
 
 // read the notes from the db.json file and 
 // put them in the dbNotes array, adding an id
@@ -9,7 +10,7 @@ let db = JSON.parse(rawData);
 let dbNotes = [];
 for (var i = 0; i < db.length; i++) {
     dbNotes.push( {
-        id: i,
+        id: uuidv4(),
         title: db[i].title,
         text: db[i].text
     })
@@ -43,7 +44,7 @@ module.exports = (app) => {
     // this code will save the note by pushing it on to dbNotes
     // it also updates the db.json file with the updated list
     app.post('/api/notes', (req, res) => {
-        req.body.id = dbNotes.length;
+        req.body.id = uuidv4();
         dbNotes.push(req.body);
         writeNotesToFile(dbNotes);
         res.json(dbNotes);
