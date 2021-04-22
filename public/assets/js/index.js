@@ -63,6 +63,7 @@ const saveNote = (note) =>
 
 
 const deleteNote = (id) =>
+  // console.log(id);
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
@@ -77,14 +78,18 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
-  console.log('activeNote.text = ' + activeNote.text);
-
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
+    // added these next two lines to be able to 
+    // edit a new note after viewing an already 
+    // existing note
+    noteTitle.readOnly = false;
+    noteText.readOnly = false;
+    
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -150,7 +155,9 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
+
 //------------------------------------------------------ //
+
 
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
@@ -160,7 +167,9 @@ const handleRenderSaveBtn = () => {
   }
 };
 
+
 //------------------------------------------------------ //
+
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
