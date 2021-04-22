@@ -12,7 +12,7 @@ module.exports = (app) => {
     });
 
 
-    // Route to the home page is no matching route is found
+    // Route to the home page if anything besides /notes is entered.
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '../public/index.html'));
     });

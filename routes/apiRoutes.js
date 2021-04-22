@@ -54,8 +54,19 @@ module.exports = (app) => {
     // this deletes the note specified by the id  and writes
     // the updated list out to the db.json file
     app.delete('/api/notes/:id', (req, res) => {
-        dbNotes.splice(req.params.id, 1);
-        writeNotesToFile(dbNotes);
+        // const index = dbNotes.indexOf(req.params.id);
+        // console.log("index = " + index);
+        index = -1;
+        for (var i = 0; i < dbNotes.length; i++) {
+            if (dbNotes[i].id === req.params.id) {
+                index = i;
+            }
+        }
+        if (index >= 0) {
+            dbNotes.splice(index, 1);
+            writeNotesToFile(dbNotes);
+        }
+        else console.log("Error deleting note id = " + req.params.id);
         res.json(dbNotes);
     });
 

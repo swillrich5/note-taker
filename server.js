@@ -22,6 +22,7 @@ app.use(express.static('public'));
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
+// start the listener, displaying the port the appliation is using
 app.listen(PORT, () => {
     console.log(`note-taker app listening on PORT: ${PORT}`);
   });

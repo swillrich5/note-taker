@@ -2,13 +2,24 @@
 
 ---
 
--- Screeshots Here ---
+## Description
+
+note-taker is an application that allows a user to create and save notes similar to the way notes can be saved on an iPhone or iPad.  
 
 ---
 
-## Description
+![Note Taker Splash Screen](./images/note-taker-splash.png "note-taker Splash Screen")
+note-taker Splash Screen
 
-note-taker is an application that allows a user to create and save notes.  
+---
+
+![Note Taker Note Creation](./images/note-taker-note-creation.png "note-taker Note Creation")
+note-taker Note Creation
+
+---
+
+![Note Taker Note Display](./images/note-taker-note-display.png "note-taker Note Display")
+note-taker Note Display
 
 --- 
 
@@ -60,6 +71,14 @@ from the command line.  The web page can be accessed from the browser at:
 ```
 http://localhost:3000
 ```
+
+The user clicks on the "Get Started" button to go to the Notes screen. From there a user can Add, View, or Delete a note.
+
+* To add a note, a user clicks the pencil icon, and then enters a note title and the text of the note.  The note can then be saved by clicking the save icon.
+
+* To View a note, the user simply clicks on the title of the note.
+
+* To Delete a note, the user clicks on the trash can icon next to the title of the note.
 
 ---
 
